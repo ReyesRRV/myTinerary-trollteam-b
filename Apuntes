@@ -1,0 +1,9 @@
+http://expressjs.com/es/
+
+bin - ejecutables
+public- NO, archivos accesibles desde la web directamente
+routes - SI se modifica
+views - No
+
+req = peticion del cliente
+res = respuesta del servidor
