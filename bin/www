@@ -24,8 +24,12 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+app.get ('/', (req, res)=>{
+  res.send ('SERVER CREATED SUCCESFULLY')})
 
-server.listen(port);
+app.listen(port, () => {
+  console.log('SERVER CREATED IN THE PORT: '+app.get('port'))
+});
 server.on('error', onError);
 server.on('listening', onListening);
 
