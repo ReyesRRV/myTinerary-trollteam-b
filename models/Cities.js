@@ -2,10 +2,12 @@ const mongoose = require('mongoose')
 
 
 const citiesSchema = new mongoose.Schema({
-    name: {type: String, required: true},
-    image: {type: String, required: true},
-    country:{type: String, required: true},
-    description:{type: String, require: true},
+    city: {String, required: true},
+    photo: {String, required: true},
+    country:{String, required: true},
+    description:{String, require: true},
+    population:{Number, min: 1000, max: 100000000,require: true},
+    fundation:{Date, require: true},
 
 })
 
