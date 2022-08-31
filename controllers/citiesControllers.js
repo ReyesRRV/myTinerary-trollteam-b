@@ -12,7 +12,7 @@ const citiesControllers = {
       query.country = req.query.country
     }
     try {
-      cities = await Event.find(query)
+      cities = await Cities.find(query)
 
       res.json(cities)
   } catch (err) {
