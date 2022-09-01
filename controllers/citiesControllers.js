@@ -1,8 +1,8 @@
-const Cities = require("../models/Cities");
+const City = require("../models/City");
 
-const citiesControllers = {
+const CityControllers = {
   getCities: async (req, res) => {
-    let cities;
+    let City;
         let query = {}
 
     if (req.query.city){
@@ -12,9 +12,9 @@ const citiesControllers = {
       query.country = req.query.country
     }
     try {
-      cities = await Cities.find(query)
+      City = await City.find(query)
 
-      res.json(cities)
+      res.json(City)
   } catch (err) {
       console.log(err)
       res.status(500).json()
@@ -25,7 +25,7 @@ const citiesControllers = {
     let city
     let error = null
     try{
-        city = await Cities.findOne({_id:id})
+        city = await City.findOne({_id:id})
        
         if (city) {
           res.status(200).json({
@@ -51,7 +51,7 @@ const citiesControllers = {
     let city 
     let error = null
     try{
-        city = await new Cities(req.body).save()
+        city = await new City(req.body).save()
         res.status(201).json({
           message: 'City created succesfully ♥',
           success: true
@@ -68,7 +68,7 @@ const citiesControllers = {
     let citydb
     let error = null
     try{
-        citydb = await Cities.findOneAndUpdate({_id: id}, city, {new: true})
+        citydb = await City.findOneAndUpdate({_id: id}, city, {new: true})
     } catch (err) {error = err}
     res.json({
         response: error ? "ERROR" : citydb,
@@ -82,7 +82,7 @@ const citiesControllers = {
     let city
     let error = null
     try {
-        city = await Cities.findOneAndDelete({_id: id})
+        city = await City.findOneAndDelete({_id: id})
     }catch (err) {error = err}
     res.json({
         response: error ? "ERROR" : city,
@@ -91,4 +91,4 @@ const citiesControllers = {
     })
   },
 };
-module.exports = citiesControllers;
+module.exports = CityControllers;

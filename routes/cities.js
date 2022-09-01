@@ -1,9 +1,8 @@
 const Router = require('express').Router()
+const {getCities, getOneCity, addCity, modifyCity, removeCity} = require('../controllers/citiesControllers')
 
-const citiesControllers = require('../controllers/citiesControllers')
-const {getCities, getOneCity, addCity, modifyCity, removeCity} = citiesControllers
 
-Router.route('cities')
+Router.route('/')
 .get(getCities)
 .post(addCity)
 
