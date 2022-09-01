@@ -3,13 +3,17 @@ const City = require("../models/City");
 const CityControllers = {
   getCities: async (req, res) => {
     let cities;
-    let query = {};
+    let query = req.query;
 
-    if (req.query.city) {
+    if (query.city) {
       query.city = req.query.city;
+      let regExp = new RegExp(`^${query.city}`, "i")
+      query.city = regExp
     }
-    if (req.query.country) {
+    if (query.country) {
       query.country = req.query.country;
+      let regExp = new RegExp(`^${query.country}`, "i")
+      query.country = regExp
     }
     try {
       console.log("query");
