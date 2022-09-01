@@ -5,6 +5,7 @@ const {getCities, getOneCity, addCity, modifyCity, removeCity} = require('../con
 router.get('/',getCities)
 router.post('/',addCity)
 router.delete('/:id',removeCity)
+router.get('/:id',getOneCity)
 
 
 
@@ -14,6 +15,5 @@ router.delete('/:id',removeCity)
 
 // router.route('/:id')
 // .put(modifyCity)
-// .get(getOneCity)
 
 module.exports = router
