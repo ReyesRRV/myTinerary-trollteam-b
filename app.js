@@ -1,7 +1,7 @@
 require('dotenv').config()
 require('./config/database')
 var express = require('express');
-const Router = require('./routes/routes')
+const Router = require('./routes/cities')
 var createError = require('http-errors')
 var path = require('path');
 var cookieParser = require('cookie-parser');
