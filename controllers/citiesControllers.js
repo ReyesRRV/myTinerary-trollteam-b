@@ -53,12 +53,12 @@ const citiesControllers = {
     try{
         city = await new Cities(req.body).save()
         res.status(201).json({
-          message: 'event created',
+          message: 'City created succesfully ♥',
           success: true
       })
     }catch(err){error = err}
     res.status(400).json({
-      message: "could't create event",
+      message: "could't create the city ☹",
       success: false
     })
   },
