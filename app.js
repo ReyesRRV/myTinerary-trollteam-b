@@ -13,8 +13,8 @@ var indexRouter = require('./routes/index');
 var app = express();
 
 //middleweres
-app.use(express.json())
-app.use('/api',Router)
+// app.use(express.json())
+// app.use('/api',Router)
 
 
 // view engine setup

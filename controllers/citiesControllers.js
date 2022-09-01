@@ -2,24 +2,35 @@ const City = require("../models/City");
 
 const CityControllers = {
   getCities: async (req, res) => {
-    let City;
+    let cities;
         let query = {}
+        
+        if (req.query.city){
+          query.city = req.query.city
+        }
+        if (req.query.country){
+          query.country = req.query.country
+        }
+        try {
+      console.log("query")
+      cities = await City.find(query)
 
-    if (req.query.city){
-      query.city = req.query.city
-    }
-    if (req.query.country){
-      query.country = req.query.country
-    }
-    try {
-      City = await City.find(query)
-
-      res.json(City)
+      res.status(200).json(cities)
   } catch (err) {
       console.log(err)
       res.status(500).json()
   }
   },
+
+
+
+
+
+
+
+
+
+
   getOneCity: async (req,res) => {
     const id = req.params.id
     let city
@@ -47,28 +58,29 @@ const CityControllers = {
   })
   },
   addCity: async (req,res) => {
-    const {name,image,country,description}=req.body.data
-    let city 
-    let error = null
+    // const {city,image,country,description}=req.body.data
+    
     try{
-        city = await new City(req.body).save()
+       
+      cities = await new City(req.body).save()
         res.status(201).json({
           message: 'City created succesfully ♥',
           success: true
       })
-    }catch(err){error = err}
-    res.status(400).json({
-      message: "could't create the city ☹",
-      success: false
-    })
+    }catch(error){
+      res.status(400).json({
+        message: "could't create the city ☹",
+        success: false
+      })
+    }
   },
   modifyCity: async (req, res) => {
     const id = req.params.id
-    const city = req.body.data
+    const cities = req.body.data
     let citydb
     let error = null
     try{
-        citydb = await City.findOneAndUpdate({_id: id}, city, {new: true})
+        citydb = await City.findOneAndUpdate({_id: id}, cities, {new: true})
     } catch (err) {error = err}
     res.json({
         response: error ? "ERROR" : citydb,
@@ -79,15 +91,19 @@ const CityControllers = {
   },
   removeCity: async (req,res) => {
     const id = req.params.id
-    let city
-    let error = null
+    let cities
     try {
-        city = await City.findOneAndDelete({_id: id})
+        cities = await City.findOneAndDelete({_id: id})
+
+        res.status(200).json({
+          message: "Deleted ^^ ",
+          success: True
+        })
+        
     }catch (err) {error = err}
-    res.json({
-        response: error ? "ERROR" : city,
-      success: error ? false : true,
-      error: error,
+    res.status(400).json({
+      message: "could't delete the city ☹",
+      success: false
     })
   },
 };

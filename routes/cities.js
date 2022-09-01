@@ -1,14 +1,19 @@
-const Router = require('express').Router()
+var router = require('express').Router()
 const {getCities, getOneCity, addCity, modifyCity, removeCity} = require('../controllers/citiesControllers')
 
 
-Router.route('/')
-.get(getCities)
-.post(addCity)
+router.get('/',getCities)
+router.post('/',addCity)
+router.delete('/:id',removeCity)
 
-Router.route('/:id')
-.delete(removeCity)
-.put(modifyCity)
-.get(getOneCity)
 
-module.exports = Router
+
+
+
+// router.get(getCities)
+
+// router.route('/:id')
+// .put(modifyCity)
+// .get(getOneCity)
+
+module.exports = router
