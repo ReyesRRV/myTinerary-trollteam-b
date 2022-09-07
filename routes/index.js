@@ -3,7 +3,7 @@ var router = express.Router();
 const citiesRouter = require('./cities')
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', {title: 'Probando cosas =)'});
+  res.render('index', {title: 'My Tinerary'});
 });
 
 router.use('/cities',citiesRouter)
