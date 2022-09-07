@@ -7,5 +7,3 @@ const commentSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Comment', commentSchema)
-    //nombre de la colección
-    //esquema de datos

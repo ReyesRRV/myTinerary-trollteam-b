@@ -3,14 +3,9 @@ const Comment = require('../models/Comment')
 const commentController = {
 
     create: async (req, res) => {
-        const {
-            comment,
-            user, 
-            itinerary,
-        } = req.body
 
         try {
-            await new Comment({ user, comment, itinerary, })
+            await new Comment(req.body).save()
 
             res.status(201).json({
                 message: 'Comment created',
