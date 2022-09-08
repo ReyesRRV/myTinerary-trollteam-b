@@ -32,7 +32,7 @@ const itineraryController = {
             .populate("city",{city:1})
             if (itineraries) {
                 res.status("200").json({
-                    message: "The following itineraries were found.",
+                    message: "We have itineraries 😀",
                     response: itineraries,
                     succes: true,
             })
