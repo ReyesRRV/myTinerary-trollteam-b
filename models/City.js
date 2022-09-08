@@ -10,5 +10,3 @@ const citiesSchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('City', citiesSchema)
-    //nombre de la colección
-    //esquema de datos
