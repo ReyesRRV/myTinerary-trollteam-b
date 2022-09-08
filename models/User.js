@@ -9,6 +9,4 @@ const userSchema = new mongoose.Schema({
     country:{type: String, require: true},
 })
 
-module.exports = mongoose.model('User', userSchema)
-    //nombre de la colección
-    //esquema de datos
+module.exports = mongoose.model('users', userSchema)

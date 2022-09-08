@@ -7,5 +7,3 @@ const activitySchema = new mongoose.Schema({
 })
 
 module.exports = mongoose.model('Activity', activitySchema)
-    //nombre de la colección
-    //esquema de datos

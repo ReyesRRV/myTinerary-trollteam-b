@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.use('/cities',citiesRouter)
-router.use('/user',usersRouter)
+router.use('/auth',usersRouter)
 router.use('/itineraries',itinerariesRouter)
 router.use('/comments',commentsRouter)
 
